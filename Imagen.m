@@ -38,7 +38,7 @@ while flag_2 < 0
   flag_2 = 0;
   end      
 end
-X2 = componentes_principales(X,r_2); % Use Principal Components to get an approach
+X2 = Principal_Components(X,r_2); % Use Principal Components to get an approach
 imwrite(uint8(X2), 'Aprox_2.jpg');   % Save second approximation
 subplot(2,2,2);                      % Position second image
 image(X2)                            % Display
@@ -54,7 +54,7 @@ while flag_3 < 0
   flag_3 = 0;
   end      
 end
-X3 = componentes_principales(X,r); % Use Principal Components to get an approach
+X3 = Principal_Components(X,r); % Use Principal Components to get an approach
 imwrite(uint8(X3), 'Aprox_3.jpg'); % Save third approximation
 subplot(2,2,3);                    % Position second image
 image(X3)                          % Display
