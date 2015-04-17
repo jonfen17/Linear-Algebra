@@ -1,22 +1,24 @@
 %--------------------------------------------------------
-% Carlos Dioney Blanco Gonz醠ez         131370
-% Curso: 羖gebra Lineal Avanzada  Primavera 2015
-% Scripfile Imagen para hacer aproximaciones de im醙enes
+% Carlos Dioney Blanco Gonz谩lez         131370
+% Course: Advanced Linear Algebra  Spring 2015
+% Imagen scriptfile for making image aproaches with
+% principal components analyisis.
 %--------------------------------------------------------
 
-imagen    = input('C髆o se llama tu archivo? (con extensi髇) \n','s'); 
-X         = imread(imagen);   % Se lee la imagen
-X         = double(X);        % Convertimos a precisi髇 doble
-[U, S, V] = svd(X,0);         % Obtenemos la SVD
-sigma     = diag(S);          % Tomamos la diagonal de S
-r         = rank(X);          % rango de la imagen original
+imagen    = input('C贸mo se llama tu archivo? (con extensi贸n) \n','s'); 
+X         = imread(imagen);   % Reads image
+X         = double(X);        % Convert to double precision
+[U, S, V] = svd(X,0);         % Obtain SVD decomposition
+sigma     = diag(S);          % We take diagonal of S
+r         = rank(X);          % rank of original matrix
 
-flag_1 = -1; flag_2 = -1; flag_3 = -1;
-%Primera aproximaci髇
+flag_1 = -1; flag_2 = -1; flag_3 = -1;  
+
+% First aproximation
 while flag_1 < 0
-    fprintf('Rango de tu primera aproximaci髇, menor a %5.3i \n',r)
-    r_1 = input('');
-  if r_1 < r
+    fprintf('Rango de tu primera aproximaci贸n, menor a %5.3i \n',r)
+    r_1 = input('');  % Receive desired rank for first aproximation
+  if r_1 < r          % we can't exceed rank of the matrix
   flag_1 = 0;
   end      
 end
@@ -28,11 +30,11 @@ colormap(gray(256))
 axis image, axis off
 title(['rango = ' int2str(r_1)]);
 
-% Segunda aproximaci髇
+% Segunda aproximaci贸n
 while flag_2 < 0
-    fprintf('Rango de tu segunda aproximaci髇, menor a %5.3i \n',r)
-    r_2 = input('');
-  if r_2 < r
+    fprintf('Rango de tu segunda aproximaci贸n, menor a %5.3i \n',r)
+    r_2 = input(''); % Receive desired rank for second aproximation
+  if r_2 < r         % we can't exceed rank of the matrix
   flag_2 = 0;
   end      
 end
@@ -44,11 +46,11 @@ colormap(gray(256))
 axis image, axis off
 title(['rango = ' int2str(r_2)]);
 
-% Tercer aproximaci髇
+% Tercer aproximaci贸n
 while flag_3 < 0
-    fprintf('Rango de tu tercera aproximaci髇, menor a %5.3i \n',r)
-    r_3 = input('');
-  if r_3 < r
+    fprintf('Rango de tu tercera aproximaci贸n, menor a %5.3i \n',r)
+    r_3 = input('');     % Receive desired rank for third aproximation
+  if r_3 < r             % we can't exceed rank of the matrix
   flag_3 = 0;
   end      
 end
